@@ -168,27 +168,26 @@ input[type=text]::placeholder {
 .date-c {
     font-style: normal;
     font-weight: 500;
-    font-size: 35px;
+    font-size: 18px !important;
     line-height: 43px;
     display: flex;
     align-items: center;
-    letter-spacing: 0.02em;
     color: rgba(255, 255, 255, 0.85);
     }
   
   .date-n {
     font-weight: 500;
-    font-size: 21px;
+    font-size: 15px !important;
     line-height: 26px;
     display: flex;
     align-items: center;
-    letter-spacing: 0.02em;
     color: rgba(205, 204, 204, 0.64);
   }
-  
-  
+  .btn-group::before {
+      display: none !important;
+  }
   .d-b , .menu-section{
-  width: 278px;
+  width: 300px !important;
   background: rgba(23, 80, 155, 0.62);
   }
 

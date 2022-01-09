@@ -49,6 +49,45 @@ let sn_card_temp = document.getElementById('sn-card-temp');
 
 // Cards-end -->
 
+// Drop downs -->
+
+let f_drop_day = document.getElementById('f-date-resp');
+let f_date_num = document.getElementById('f-date-num');
+let f_date_img = document.getElementById('f-date-img');
+let f_low_f = document.getElementById('f-max-f');
+let f_max_f = document.getElementById('f-low-f');
+let f_wind_resp = document.getElementById('f-wind-resp');
+let f_rain_resp = document.getElementById('f-rain-resp');
+let f_sunrise   = document.getElementById('f-sunrise');
+let f_sunset   = document.getElementById('f-sunset');
+
+
+
+let s_drop_day = document.getElementById('s-date-resp');
+let s_date_num = document.getElementById('s-date-num');
+let s_date_img = document.getElementById('s-date-img');
+let s_low_f = document.getElementById('s-max-f');
+let s_max_f = document.getElementById('s-low-f');
+let s_wind_resp = document.getElementById('s-wind-resp');
+let s_rain_resp = document.getElementById('s-rain-resp');
+let s_sunrise   = document.getElementById('s-sunrise');
+let s_sunset   = document.getElementById('s-sunset');
+
+
+
+let tr_drop_day = document.getElementById('tr-date-resp');
+let tr_date_num = document.getElementById('tr-date-num');
+let tr_date_img = document.getElementById('tr-date-img');
+let tr_low_f = document.getElementById('tr-max-f');
+let tr_max_f = document.getElementById('tr-low-f');
+let tr_wind_resp = document.getElementById('tr-wind-resp');
+let tr_rain_resp = document.getElementById('tr-rain-resp');
+let tr_sunrise   = document.getElementById('tr-sunrise');
+let tr_sunset   = document.getElementById('tr-sunset');
+
+
+//Drop downs-end -->
+
 // Get croods
 function getLocation(v) {
   if (navigator.geolocation) {
@@ -96,7 +135,11 @@ function showPosition(position) {
 		    //day_string = 'Date : '+days[date.getDay()]+' '+date.getDate()+' '+toLocaleString('default', { month: 'long' });
 		    let day_string = days[date.getDay()];
 		    let full_d =  day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
-		    let obj = {'full_d':full_d,'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true })}
+		    let obj = {
+			'full_d':full_d,
+			'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true }),
+			'day_name': days[date.getDay()]
+				}
 		    return obj;
 		}
 		 date_response.innerHTML = getdate(current_time).full_d;
@@ -155,7 +198,45 @@ function showPosition(position) {
 		 sn_card_img.src = data.forecast.forecastday[0].hour[0].condition.icon.replace('//','http://');	
 		 sn_card_temp.innerText =  data.forecast.forecastday[0].hour[0].temp_c+' °';
 		// Cards container-end -->
+		
 
+		// DropDowns -->
+		 d =  data.forecast.forecastday[0].hour[0].time_epoch ;
+		 f_drop_day.innerText = getdate(d).day_name; 
+		 f_date_num.innerText = data.forecast.forecastday[0].date;	
+		 f_date_img.src= data.forecast.forecastday[0].day.condition.icon.replace('//','http://')
+		 f_max_f.innerText = data.forecast.forecastday[0].day.mintemp_c+' °';
+		 f_low_f.innerText = data.forecast.forecastday[0].day.maxtemp_c+' °';
+		 f_wind_resp.innerText = data.forecast.forecastday[0].hour[0].wind_kph+' kmh';
+		 f_rain_resp.innerText = data.forecast.forecastday[0].hour[0].chance_of_rain+' %';
+		 f_sunrise.innerText = data.forecast.forecastday[0].astro.sunrise;
+		 f_sunset.innerText = data.forecast.forecastday[0].astro.sunset;
+
+
+		 d =  data.forecast.forecastday[1].hour[0].time_epoch ;
+		 s_drop_day.innerText = getdate(d).day_name; 
+		 s_date_num.innerText = data.forecast.forecastday[1].date;	
+		 s_date_img.src= data.forecast.forecastday[1].day.condition.icon.replace('//','http://')
+		 s_max_f.innerText = data.forecast.forecastday[1].day.mintemp_c+' °';
+		 s_low_f.innerText = data.forecast.forecastday[1].day.maxtemp_c+' °';
+		 s_wind_resp.innerText = data.forecast.forecastday[1].hour[0].wind_kph+' kmh';
+		 s_rain_resp.innerText = data.forecast.forecastday[1].hour[0].chance_of_rain+' %';
+		 s_sunrise.innerText = data.forecast.forecastday[1].astro.sunrise;
+		 s_sunset.innerText = data.forecast.forecastday[1].astro.sunset;
+
+
+		 d =  data.forecast.forecastday[2].hour[0].time_epoch ;
+		 tr_drop_day.innerText = getdate(d).day_name; 
+		 tr_date_num.innerText = data.forecast.forecastday[2].date;	
+		 tr_date_img.src= data.forecast.forecastday[2].day.condition.icon.replace('//','http://')
+		 tr_max_f.innerText = data.forecast.forecastday[2].day.mintemp_c+' °';
+		 tr_low_f.innerText = data.forecast.forecastday[2].day.maxtemp_c+' °';
+		 tr_wind_resp.innerText = data.forecast.forecastday[2].hour[0].wind_kph+' kmh';
+		 tr_rain_resp.innerText = data.forecast.forecastday[2].hour[0].chance_of_rain+' %';
+		 tr_sunrise.innerText = data.forecast.forecastday[2].astro.sunrise;
+		 tr_sunset.innerText = data.forecast.forecastday[2].astro.sunset;
+
+		// DropDowns-end -->
 		
 		});	
 	    };

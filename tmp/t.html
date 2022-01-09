@@ -9,6 +9,8 @@ function getdate(){
     let day_string = days[date.getDay()]+' ';
     let full_d = day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
 	let obj = {'full_d':full_d,'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true })}
+	console.log(days[date.getDay()]);
+
 	return obj;
 }
 
