@@ -1,0 +1,16 @@
+<p id='demo'></p>
+<button onclick="loadDoc()">Add</button>
+<script>
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            
+           console.log(this.responseText);
+       }
+    };
+    xhttp.open("GET", "http://api.positionstack.com/v1/reverse?access_key=908084ff960984ae1fea7536e8149f9e&query=35.765753,-5.7651278", true);
+    xhttp.send();
+}
+console.log(loadDoc());
+</script>

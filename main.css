@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,400;1,500;1,700&display=swap');
+
+* {
+    padding : 0;
+    margin : 0 ;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.top-left   {
+    padding : 48px 46px;
+}
+#region-title {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+#date-response {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    letter-spacing: 0.05em;
+    padding :20px;
+    color: #FFFFFF;
+}
+
+
+.search-container{
+    position: absolute;
+    z-index: 12;
+    left : 10px;
+    right: 0;
+    border-bottom: 0.5px solid #fff;
+    width :250px;
+    height: 52px;
+}
+ input[type=text] {
+    cursor: pointer;
+    padding : 30px;
+    height: 52px;
+    border : none ;
+    background : none;
+    outline : none ;
+    color : #fff;
+}
+input[type=text]::placeholder {
+    font-style: normal;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 24px;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    color: #DDDDDD;
+}
+.fa-search{
+    color : #fff;
+    font-size : 20px;
+}
+
+.search-container button {
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  background : none ;
+  outline : none ;
+}
+
+#temp-text {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 73px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+#temp-resp {
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 73px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+.rem-bd {
+    border-left : 3px solid #fff;
+}
+#wind-resp ,#cloud-resp,#rain-resp,#humidity-resp{
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-right : 20px;
+}
+
+.left-hero-desc{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: 0.05em;
+    color: rgba(205, 204, 204, 0.64);
+}
+.sp-text {
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 61px;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+.today {
+    padding : 20px;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+.weather-card {
+    width: 170px;
+    height: 218px;
+    background: #1D469F;
+    border-radius: 10px;
+}
+#time-cd-resp {
+    color : #fff;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+}
+.card-container {
+    margin : 27px;
+    text-align: center;
+}
+.card-body img {
+    width: 93px;
+    height: 93px;
+}
+.card-header , .card-footer {
+    background : none ;
+    border  : none ;
+}
+.card-header {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+.card-footer {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+    color : #fff;
+}
+
+.date-c {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.85);
+    }
+  
+  .date-n {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: rgba(205, 204, 204, 0.64);
+  }
+  
+  
+  .d-b , .menu-section{
+  width: 278px;
+  background: rgba(23, 80, 155, 0.62);
+  }
+
+  .col img {
+    width: 107px;
+    height: 93px;
+  }
+
+  .date-c {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.85);
+    }
+  
+  .date-n {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.02em;
+    color: rgba(205, 204, 204, 0.64);
+  }
+  
+  
+  .d-b , .menu-section{
+  width: 263px;
+  background: #17509B;
+  }
+
+  .col img {
+    width: 107px;
+    height: 93px;
+  }
+  .col-md-2 {
+      width: 100px;
+  }
+ 
+  
+@media only screen and (max-width: 767px) {
+  .rem-bd {
+      border : none ;
+      padding : 40px 0 ;    
+    }
+    .sp-text {font-size : 35px;}
+ .today {
+     font-size : 20px;
+     padding  : 20px;
+ }
+
+}
+
+@media only screen and (max-width: 1500px){
+    .add-height {
+        height: 120vh;
+    }
+    .cards-margin {
+        margin : 10px;
+    }
+}

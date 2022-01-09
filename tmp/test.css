@@ -1,0 +1,32 @@
+.date-c {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.85);
+  }
+
+.date-n {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: rgba(205, 204, 204, 0.64);
+}
+
+
+.d-b , .menu-section{
+width: 308px;
+background: #17509B;
+}
+*:after{display:none !important;}
+.col img {
+  width: 107px;
+  height: 93px;
+}
+

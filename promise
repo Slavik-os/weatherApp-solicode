@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body style='background-color :  #212422'>
+	
+<p id='demo'> </p>
+
+<script>
+payload = {
+'url' : 'http://api.weatherapi.com/v1/current.json?q=paris' ,
+'key' : '6251f33e57e34473b76144654220601',
+'q'   : 'Paris'
+};
+async function getData(url=''){
+	const req = await fetch(url, {
+	method : 'GET',
+	cahe   : 'no-cache',
+	headers : {
+		  'Content-Type' : 'application/json',
+		  'key' : payload['key']
+		  }
+	});
+	return req.json();
+}
+
+getData(payload['url'])
+.then(data => {
+	console.log(data['current']['condition']['icon']);
+})
+.catch( error  => {
+	console.log('error');
+});
+
+</script>
+</body>
+</html>

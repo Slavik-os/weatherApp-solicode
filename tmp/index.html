@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+<p id='demo'></p> 
+<button onclick='getD()'>load</button>
+
+
+<script>
+
+
+
+payload = {
+'url' : 'http://api.weatherapi.com/v1/current.json?q=paris' ,
+'key' : '6251f33e57e34473b76144654220601',
+};
+
+function getD(){
+	async function getData(url=''){
+		const req = await fetch(url, {
+		method : 'GET',
+		cahe   : 'no-cache',
+		headers : {
+			  'Content-Type' : 'application/json',
+			  'key' : payload['key'],
+		          'q'   : payload['q']
+			}
+		});
+		return req.json();
+	}
+
+	getData('http://api.positionstack.com/v1/reverse?access_key=908084ff960984ae1fea7536e8149f9e&query=35.765753,-5.7651278')
+	.then(data => {
+
+		let image = document.createElement('img');
+		document.body.appendChild(image);
+		src = data['current']['condition']['icon'].replace('//','https://');
+		image.setAttribute('src',src);
+	});
+}
+</script> 
+</body>
+</html>
+
+

@@ -1,0 +1,7 @@
+sync function hello() {
+  return await Promise.resolve("Hello");
+};
+
+hello().then(alert);
+
+
