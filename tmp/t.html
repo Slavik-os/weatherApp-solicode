@@ -1,6 +1,20 @@
 <p id='demo'></p>
 <button onclick="loadDoc()">Add</button>
 <script>
+function getdate(){
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+	let date = new Date(1641723690 * 1000);
+	console.log(date.getFullYear());
+    //day_string = 'Date : '+days[date.getDay()]+' '+date.getDate()+' '+toLocaleString('default', { month: 'long' });
+    let day_string = days[date.getDay()]+' ';
+    let full_d = day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
+	let obj = {'full_d':full_d,'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true })}
+	return obj;
+}
+
+console.log(getdate().Hours);
+
+/*
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -13,4 +27,5 @@ function loadDoc() {
     xhttp.send();
 }
 console.log(loadDoc());
+*/
 </script>

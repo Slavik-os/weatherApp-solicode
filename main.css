@@ -41,7 +41,7 @@
 }
  input[type=text] {
     cursor: pointer;
-    padding : 30px;
+    padding : 10px;
     height: 52px;
     border : none ;
     background : none;
@@ -88,7 +88,7 @@ input[type=text]::placeholder {
 .rem-bd {
     border-left : 3px solid #fff;
 }
-#wind-resp ,#cloud-resp,#rain-resp,#humidity-resp{
+#wind-resp ,#cloud-resp,#rain-resp,#humidity-resp,#pressure-in{
     font-weight: 500;
     font-size: 30px;
     line-height: 37px;
@@ -123,7 +123,7 @@ input[type=text]::placeholder {
 }
 .weather-card {
     width: 170px;
-    height: 218px;
+    height: 220px;
     background: #1D469F;
     border-radius: 10px;
 }
@@ -141,19 +141,20 @@ input[type=text]::placeholder {
     text-align: center;
 }
 .card-body img {
-    width: 93px;
-    height: 93px;
+    width: 120px;
+    height: 120px;
+}
+.sun {
+    font-size : 15px;
+    color : #fff;
+    letter-spacing: 0.002em;
+    font-weight: 400;  
 }
 .card-header , .card-footer {
+    color : #fff;
+    font-weight: 400;
     background : none ;
     border  : none ;
-}
-.card-header {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 30px;
-    letter-spacing: 0.02em;
-    color: #FFFFFF;
 }
 .card-footer {
     font-style: normal;

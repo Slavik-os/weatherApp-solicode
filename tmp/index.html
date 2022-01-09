@@ -39,7 +39,7 @@ function getD(){
 	.then(data => {
 
 		let image = document.createElement('img');
-		document.body.appendChild(image);
+		document.body.appendChil(image);
 		src = data['current']['condition']['icon'].replace('//','https://');
 		image.setAttribute('src',src);
 	});
