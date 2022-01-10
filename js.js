@@ -1,6 +1,4 @@
 // Declarations -->
-
-let region = null ; 
 let header_title = document.getElementById('region-title');
 let region_v = document.getElementById('region_v');
 let date_response = document.getElementById('date-response');
@@ -88,60 +86,45 @@ let tr_sunset   = document.getElementById('tr-sunset');
 
 //Drop downs-end -->
 
-// Get croods
-function getLocation(v) {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition,error=>{alert('Enable location services')});
-  } else { 
-     return  "Geolocation is not supported by this browser.";
-  }
+
+let region = null ;
+
+function getdate(current_t){
+	let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+	let date = new Date(current_t * 1000);
+	//day_string = 'Date : '+days[date.getDay()]+' '+date.getDate()+' '+toLocaleString('default', { month: 'long' });
+	let day_string = days[date.getDay()];
+	let full_d =  day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
+	let obj = {
+			'full_d':full_d,
+			'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true }),
+			'day_name': days[date.getDay()]
+		}
+	return obj;
 }
 
-// Get city name
-function showPosition(position) {
-	latitude = position.coords.latitude;
-	longitude = position.coords.longitude;
-	var xhttp = new XMLHttpRequest();
-	    xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-		   if (region == null ) {
-			   region = JSON.parse(this.responseText)['data'][0].region.split('-')[0];
-			}	
-			
- 
-// ----> Get Forecast weather
-	async function getData(url=''){
-		let req = await fetch(url,{
-			methd : 'GET',
-			cache : 'no-cache',
-			headers : {
-				'Content-Type' : 'application/json',
-				'key' : '6251f33e57e34473b76144654220601'
-			}
-			});
-			return req.json() ; 
 
+async function getData(url=''){
+	let req = await fetch(url,{
+		methd : 'GET',
+		cache : 'no-cache',
+		headers : {
+			'Content-Type' : 'application/json',
+			'key' : '6251f33e57e34473b76144654220601'
 		}
-		getData(`http://api.weatherapi.com/v1/forecast.json?q=${region}&days=5`)
-		.then(data =>{
+		});
+		return req.json() ; 
+
+	}
+
+function chang(){
+	getData(`http://api.weatherapi.com/v1/forecast.json?q=${region}&days=5`).then(data =>{	
 		// header section --> 
 		header_title.innerHTML = data.location.name+' , '+data.location.country ;
 		let current_time = data.location.localtime_epoch ;
 	
 		// Get Date as timeepoch and parse it to string 
-		function getdate(current_t){
-		    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-			let date = new Date(current_t * 1000);
-		    //day_string = 'Date : '+days[date.getDay()]+' '+date.getDate()+' '+toLocaleString('default', { month: 'long' });
-		    let day_string = days[date.getDay()];
-		    let full_d =  day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
-		    let obj = {
-			'full_d':full_d,
-			'Hours':date.toLocaleString('en-US', { hour: 'numeric', hour12: true }),
-			'day_name': days[date.getDay()]
-				}
-		    return obj;
-		}
+	
 		 date_response.innerHTML = getdate(current_time).full_d;
 		// Header section-end -->
 
@@ -239,11 +222,40 @@ function showPosition(position) {
 		// DropDowns-end -->
 		
 		});	
+}
+
+// Get croods
+function getLocation(v) {
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition,error=>{
+		  region = prompt('Enable Your location or Enter a City : ');
+		  chang();		  
+      });
+  } else { 
+     return  "Geolocation is not supported by this browser.";
+  }
+}
+
+
+// Get city name
+function showPosition(position) {
+	latitude = position.coords.latitude;
+	longitude = position.coords.longitude;
+	var xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		   if (region == null ) {
+			   region = JSON.parse(this.responseText)['data'][0].region.split('-')[0];
+			}	
+// ----> Get Forecast weather
+			chang();
+
 	    };
 	}
 	    xhttp.open("GET", `http://api.positionstack.com/v1/reverse?access_key=908084ff960984ae1fea7536e8149f9e&query=${latitude},${longitude}`, true);
 	    xhttp.send();
 	}
+
 
 
 getLocation();
