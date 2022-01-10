@@ -80,7 +80,7 @@ input[type=text]::placeholder {
 }
 #temp-resp {
     font-weight: 500;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 73px;
     letter-spacing: 0.05em;
     color: #FFFFFF;
@@ -230,7 +230,9 @@ input[type=text]::placeholder {
   .col-md-2 {
       width: 100px;
   }
- 
+ .dropdown-item:hover {
+  background-color: rgba(211, 211, 211, 0.527);
+ }
   
 @media only screen and (max-width: 767px) {
   .rem-bd {
