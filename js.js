@@ -92,7 +92,6 @@ let region = null ;
 function getdate(current_t){
 	let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 	let date = new Date(current_t * 1000);
-	//day_string = 'Date : '+days[date.getDay()]+' '+date.getDate()+' '+toLocaleString('default', { month: 'long' });
 	let day_string = days[date.getDay()];
 	let full_d =  day_string+' '+date.getDate()+' '+date.toLocaleString('default', { month: 'long' }).slice(0,3);
 	let obj = {
@@ -223,12 +222,15 @@ function chang(){
 		
 		});	
 }
-
+let check = false ;
 // Get croods
 function getLocation(v) {
   if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition,error=>{
-		  region = prompt('Enable Your location or Enter a City : ');
+		 if (!check){ 
+			region = prompt('Enable Your location or Enter a City : ');
+			check = true ;
+			} 
 		  chang();		  
       });
   } else { 
